@@ -20,6 +20,14 @@ services:
       timeout: 5s
       retries: 5
 
+  redis:
+    image: redis:7-alpine
+    container_name: aaa-redis
+    restart: unless-stopped
+    networks:
+      fd08_db:
+        ipv4_address: 10.0.112.11
+
   freeradius:
     image: freeradius/freeradius-server:latest-alpine
     container_name: aaa-freeradius
@@ -48,17 +56,61 @@ services:
       fd08_db:
         ipv4_address: 10.0.112.2
 
+  api:
+    build: ../api
+    container_name: aaa-api
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DB_HOST: 10.0.112.10
+      DB_DATABASE: ${DB_DATABASE:-mcore_aaa}
+      RADIUS_DB_USER: ${RADIUS_DB_USER:-radius}
+      RADIUS_DB_PASSWORD: ${RADIUS_DB_PASSWORD:-change_me_strong_db_pass}
+    networks:
+      fd03_api:
+        ipv4_address: 10.0.32.10
+      fd08_db:
+        ipv4_address: 10.0.112.3
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: aaa-caddy
+    restart: unless-stopped
+    depends_on:
+      - api
+    ports:
+      - "8080:80"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+    networks:
+      fd13_edge:
+        ipv4_address: 10.0.192.10
+      fd03_api:
+        ipv4_address: 10.0.32.2
+
 networks:
   fd02_nas:
     driver: bridge
     ipam:
       config:
         - subnet: 10.0.16.0/20
+  fd03_api:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.32.0/20
   fd08_db:
     driver: bridge
     ipam:
       config:
         - subnet: 10.0.112.0/20
+  fd13_edge:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.192.0/20
 
 volumes:
   pgdata:
