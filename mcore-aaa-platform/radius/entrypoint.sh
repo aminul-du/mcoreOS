@@ -8,14 +8,26 @@ set -e
 : "${RADIUS_NAS_SECRET:=change_me_nas_secret}"
 : "${RADIUS_LOCAL_SECRET:=change_me_local_secret}"
 
-mkdir -p /etc/freeradius/run
-cp -rL /etc/freeradius/3.0/* /etc/freeradius/run/
-
-if ! grep -q "/usr/share/freeradius/dictionary" /etc/freeradius/run/dictionary 2>/dev/null; then
-  sed -i '1s|^|$INCLUDE /usr/share/freeradius/dictionary\n|' /etc/freeradius/run/dictionary
+# Render configuration templates into /etc/freeradius/3.0/
+if [ -d "/raddb-tpl" ]; then
+  [ -f "/raddb-tpl/clients.conf" ] && cp /raddb-tpl/clients.conf /etc/freeradius/3.0/clients.conf
+  if [ -d "/raddb-tpl/clients.d" ]; then
+    mkdir -p /etc/freeradius/3.0/clients.d
+    cp -r /raddb-tpl/clients.d/* /etc/freeradius/3.0/clients.d/ 2>/dev/null || true
+  fi
+  [ -f "/raddb-tpl/mods-enabled/sql" ] && cp /raddb-tpl/mods-enabled/sql /etc/freeradius/3.0/mods-enabled/sql
+  [ -f "/raddb-tpl/sites-enabled/default" ] && cp /raddb-tpl/sites-enabled/default /etc/freeradius/3.0/sites-enabled/default
+  [ -f "/raddb-tpl/dictionary.mikrotik" ] && cp /raddb-tpl/dictionary.mikrotik /etc/freeradius/3.0/dictionary.mikrotik
 fi
 
-for f in /etc/freeradius/run/clients.conf /etc/freeradius/run/clients.d/* /etc/freeradius/run/mods-enabled/sql; do
+# Preserve master dictionary and include dictionary.mikrotik
+if [ -f "/etc/freeradius/3.0/dictionary.mikrotik" ]; then
+  grep -q "dictionary.mikrotik" /etc/freeradius/3.0/dictionary || \
+    echo '$INCLUDE /etc/freeradius/3.0/dictionary.mikrotik' >> /etc/freeradius/3.0/dictionary
+fi
+
+# Expand environment variables
+for f in /etc/freeradius/3.0/clients.conf /etc/freeradius/3.0/clients.d/* /etc/freeradius/3.0/mods-enabled/sql; do
   [ -f "$f" ] || continue
   sed -i \
     -e "s|\${ENV:DB_HOST}|${DB_HOST}|g" \
@@ -33,11 +45,15 @@ for f in /etc/freeradius/run/clients.conf /etc/freeradius/run/clients.d/* /etc/f
     "$f"
 done
 
-grep -q "group_attribute" /etc/freeradius/run/mods-enabled/sql 2>/dev/null || sed -i '/client_table/a \	group_attribute = "SQL-Group"' /etc/freeradius/run/mods-enabled/sql
-grep -q "read_groups" /etc/freeradius/run/mods-enabled/sql 2>/dev/null || sed -i '/group_attribute/a \	read_groups = no\n	read_profiles = no' /etc/freeradius/run/mods-enabled/sql
+# Ensure SQL group and profile queries don't break on missing optional tables
+grep -q "group_attribute" /etc/freeradius/3.0/mods-enabled/sql 2>/dev/null || \
+  sed -i '/client_table/a \	group_attribute = "SQL-Group"' /etc/freeradius/3.0/mods-enabled/sql
+grep -q "read_groups" /etc/freeradius/3.0/mods-enabled/sql 2>/dev/null || \
+  sed -i '/group_attribute/a \	read_groups = no\n	read_profiles = no' /etc/freeradius/3.0/mods-enabled/sql
 
+# Enforce freerad permissions
 mkdir -p /var/log/freeradius /var/run/freeradius
-chown -R freerad:freerad /etc/freeradius/run /var/log/freeradius /var/run/freeradius
-chmod -R u=rwX,g=rX,o= /etc/freeradius/run
+chown -R freerad:freerad /etc/freeradius/3.0 /var/log/freeradius /var/run/freeradius
+chmod -R u=rwX,g=rX,o= /etc/freeradius/3.0
 
 exec "$@"
