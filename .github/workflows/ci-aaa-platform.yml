@@ -9,3 +9,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: docker compose -f mcore-aaa-platform/docker/docker-compose.prod.yml config -q
+      - run: docker build -t freeradius-test mcore-aaa-platform/radius

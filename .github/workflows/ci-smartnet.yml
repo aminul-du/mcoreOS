@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: python3 -c "import yaml; yaml.safe_load(open('smartnet/master/FAILURE_DOMAINS.yaml')); yaml.safe_load(open('smartnet/intent/site-001/routing.yaml')); print('SmartNet FD-00..FD-15 Valid')"
+      - run: pip install --quiet pyyaml && python3 -c "import yaml; yaml.safe_load(open('smartnet/master/FAILURE_DOMAINS.yaml')); yaml.safe_load(open('smartnet/intent/site-001/routing.yaml')); print('SmartNet FD-00..FD-15 Valid')"
