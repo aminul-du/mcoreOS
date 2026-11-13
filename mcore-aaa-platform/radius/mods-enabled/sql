@@ -6,15 +6,28 @@ sql {
 	login = "${ENV:RADIUS_DB_USER}"
 	password = "${ENV:RADIUS_DB_PASSWORD}"
 	radius_db = "${ENV:DB_DATABASE}"
+	acct_table1 = "radacct"
+	acct_table2 = "radacct"
+	postauth_table = "radpostauth"
+	authcheck_table = "radcheck"
+	groupcheck_table = "radgroupcheck"
+	authreply_table = "radreply"
+	groupreply_table = "radgroupreply"
+	usergroup_table = "radusergroup"
+	delete_stale_sessions = yes
 	read_clients = yes
 	client_table = "nas"
+	group_attribute = "SQL-Group"
+	read_groups = no
+	read_profiles = no
 	pool {
-		start = 5
-		min = 4
-		max = 32
-		spare = 10
+		start = 2
+		min = 2
+		max = 16
+		spare = 4
 		uses = 0
 		lifetime = 0
 		idle_timeout = 60
 	}
+	$INCLUDE ${modconfdir}/${.:name}/main/${dialect}/queries.conf
 }

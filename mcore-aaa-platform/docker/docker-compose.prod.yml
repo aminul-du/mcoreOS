@@ -29,7 +29,7 @@ services:
         ipv4_address: 10.0.112.11
 
   freeradius:
-    image: freeradius/freeradius-server:latest-alpine
+    build: ../radius
     container_name: aaa-freeradius
     restart: unless-stopped
     depends_on:
@@ -43,10 +43,11 @@ services:
       RADIUS_NAS_SECRET: ${RADIUS_NAS_SECRET:-change_me_nas_secret}
       RADIUS_LOCAL_SECRET: ${RADIUS_LOCAL_SECRET:-change_me_local_secret}
     volumes:
-      - ../radius/clients.conf:/etc/raddb/clients.conf:ro
-      - ../radius/clients.d:/etc/raddb/clients.d:ro
-      - ../radius/mods-enabled/sql:/etc/raddb/mods-enabled/sql:ro
-      - ../radius/dictionary.mikrotik-include:/etc/raddb/dictionary.mikrotik-include:ro
+      - ../radius/clients.conf:/etc/freeradius/3.0/clients.conf:ro
+      - ../radius/clients.d:/etc/freeradius/3.0/clients.d:ro
+      - ../radius/mods-enabled/sql:/etc/freeradius/3.0/mods-enabled/sql:ro
+      - ../radius/sites-enabled/default:/etc/freeradius/3.0/sites-enabled/default:ro
+      - ../radius/dictionary.mikrotik-include:/etc/freeradius/3.0/dictionary:ro
     ports:
       - "1812:1812/udp"
       - "1813:1813/udp"

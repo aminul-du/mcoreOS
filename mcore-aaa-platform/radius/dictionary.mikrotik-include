@@ -1,3 +1,5 @@
+$INCLUDE /usr/share/freeradius/dictionary
+
 VENDOR		Mikrotik			14988
 BEGIN-VENDOR	Mikrotik
 ATTRIBUTE	Mikrotik-Rate-Limit			8	string
