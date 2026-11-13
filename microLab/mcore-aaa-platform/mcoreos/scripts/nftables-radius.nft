@@ -1,0 +1,13 @@
+#!/usr/sbin/nft -f
+table inet smartnet_aaa {
+	chain forward {
+		type filter hook forward priority 0; policy drop;
+		ct state established,related accept
+		ip saddr 10.0.16.0/20 ip daddr 10.0.16.2 udp dport { 1812, 1813 } accept
+		ip saddr 10.0.32.0/20 ip daddr 10.0.16.0/20 udp dport 3799 accept
+		ip saddr 10.0.32.0/20 ip daddr 10.0.16.0/20 tcp dport { 8728, 8729 } accept
+		ip saddr 10.0.16.2 ip daddr 10.0.112.10 tcp dport 5432 accept
+		ip saddr 10.0.32.0/20 ip daddr 10.0.112.0/24 tcp dport { 5432, 6379 } accept
+		ip saddr 10.0.192.0/20 ip daddr 10.0.32.10 tcp dport 8000 accept
+	}
+}

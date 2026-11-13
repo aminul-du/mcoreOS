@@ -1,0 +1,13 @@
+version: "1.2.0"
+site_id: "site-001"
+parent_cidr: "10.0.0.0/16"
+interfaces:
+  - { name: "wg-nas01", vrf: "vrf-fd02", address: "10.0.16.1/20", mtu: 1420 }
+  - { name: "br-aaa-api", vrf: "vrf-fd03", address: "10.0.32.1/20" }
+  - { name: "br-aaa-db", vrf: "vrf-fd08", address: "10.0.112.1/20" }
+  - { name: "br-aaa-edge", vrf: "vrf-fd13", address: "10.0.192.1/20" }
+vrf_route_leaks:
+  - { name: "radius-to-postgres-sql", from_vrf: "vrf-fd02", to_vrf: "vrf-fd08", prefix: "10.0.112.10/32", protocols: ["tcp/5432"] }
+  - { name: "api-to-mikrotik-coa", from_vrf: "vrf-fd03", to_vrf: "vrf-fd02", prefix: "10.0.16.0/20", protocols: ["udp/3799", "tcp/8728", "tcp/8729"] }
+  - { name: "api-to-postgres-redis", from_vrf: "vrf-fd03", to_vrf: "vrf-fd08", prefix: "10.0.112.0/24", protocols: ["tcp/5432", "tcp/6379"] }
+  - { name: "edge-caddy-to-api", from_vrf: "vrf-fd13", to_vrf: "vrf-fd03", prefix: "10.0.32.10/32", protocols: ["tcp/8000"] }

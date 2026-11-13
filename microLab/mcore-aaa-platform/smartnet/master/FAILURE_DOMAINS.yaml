@@ -1,0 +1,19 @@
+version: "1.2.0"
+parent_cidr: 10.0.0.0/16
+domains:
+  - { id: FD-00, name: "Fabric Control", cidr: 10.0.240.0/20, vrf: vrf-fd00 }
+  - { id: FD-01, name: "Kernel/Host", cidr: 10.0.0.0/20, vrf: vrf-fd01 }
+  - { id: FD-02, name: "Network/Tunnels", cidr: 10.0.16.0/20, vrf: vrf-fd02 }
+  - { id: FD-03, name: "Rust/API", cidr: 10.0.32.0/20, vrf: vrf-fd03 }
+  - { id: FD-04, name: "Python/AI", cidr: 10.0.48.0/20, vrf: vrf-fd04 }
+  - { id: FD-05, name: "Frontend", cidr: 10.0.64.0/20, vrf: vrf-fd05 }
+  - { id: FD-06, name: "CI/CD", cidr: 10.0.80.0/20, vrf: vrf-fd06 }
+  - { id: FD-07, name: "Observability", cidr: 10.0.96.0/20, vrf: vrf-fd07 }
+  - { id: FD-08, name: "Data/DB", cidr: 10.0.112.0/20, vrf: vrf-fd08 }
+  - { id: FD-09, name: "Backup/DR", cidr: 10.0.128.0/20, vrf: vrf-fd09 }
+  - { id: FD-10, name: "Agent/MCP", cidr: 10.0.144.0/20, vrf: vrf-fd10 }
+  - { id: FD-11, name: "Secrets/IAM", cidr: 10.0.160.0/20, vrf: vrf-fd11 }
+  - { id: FD-12, name: "DNS/Mesh", cidr: 10.0.176.0/20, vrf: vrf-fd12 }
+  - { id: FD-13, name: "CDN/Edge", cidr: 10.0.192.0/20, vrf: vrf-fd13 }
+  - { id: FD-14, name: "Web Vitals", cidr: 10.0.208.0/20, vrf: vrf-fd14 }
+  - { id: FD-15, name: "Governance", cidr: 10.0.224.0/20, vrf: vrf-fd15 }

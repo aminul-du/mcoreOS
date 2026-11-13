@@ -1,0 +1,6 @@
+client smartnet-fd02-nas {
+	ipaddr = 10.0.16.0/20
+	secret = "${ENV:RADIUS_NAS_SECRET}"
+	nas_type = mikrotik
+	require_message_authenticator = yes
+}

@@ -1,0 +1,20 @@
+sql {
+	driver = "rlm_sql_postgresql"
+	dialect = "postgresql"
+	server = "${ENV:DB_HOST}"
+	port = 5432
+	login = "${ENV:RADIUS_DB_USER}"
+	password = "${ENV:RADIUS_DB_PASSWORD}"
+	radius_db = "${ENV:DB_DATABASE}"
+	read_clients = yes
+	client_table = "nas"
+	pool {
+		start = 5
+		min = 4
+		max = 32
+		spare = 10
+		uses = 0
+		lifetime = 0
+		idle_timeout = 60
+	}
+}
