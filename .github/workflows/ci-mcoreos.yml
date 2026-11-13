@@ -1,0 +1,11 @@
+name: Upgrade - mcoreos
+on:
+  push:
+    branches: [main]
+    paths: ['mcoreos/**']
+jobs:
+  verify-mcoreos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y nftables && sudo nft -c -f mcoreos/scripts/nftables-radius.nft

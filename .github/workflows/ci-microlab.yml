@@ -1,0 +1,11 @@
+name: Upgrade - microLab
+on:
+  push:
+    branches: [main]
+    paths: ['microLab/**']
+jobs:
+  verify-microlab:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash -n microLab/scripts/up-site-001.sh && bash -n microLab/scripts/smoke-test-aaa.sh

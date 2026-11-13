@@ -1,0 +1,11 @@
+name: Upgrade - mcore-aaa-platform
+on:
+  push:
+    branches: [main]
+    paths: ['mcore-aaa-platform/**']
+jobs:
+  verify-aaa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker compose -f mcore-aaa-platform/docker/docker-compose.prod.yml config -q
