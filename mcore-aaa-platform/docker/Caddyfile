@@ -1,0 +1,15 @@
+:80 {
+	encode gzip zstd
+
+	handle /api/* {
+		reverse_proxy 10.0.32.10:8000
+	}
+
+	handle /webhooks/* {
+		reverse_proxy 10.0.32.10:8000
+	}
+
+	handle {
+		respond "MCore AAA Edge Portal (SmartNet FD-13 Online)" 200
+	}
+}
