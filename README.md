@@ -28,6 +28,22 @@ All operational documentation is ratified and maintained under the **Master Docu
 
 ---
 
+
+---
+
+## 🛡️ P1 Backup Integrity & Disaster Recovery Reports
+
+Under **Directive P1 (Version 1.0.0)**, full empirical verification, restoration testing, and secret hygiene audits were performed:
+
+| Document Reference | Report File | Scope & Deliverable |
+|---|---|---|
+| **P1-REP-01** | [MCOREOS_P1_BACKUP_INTEGRITY_REPORT.md](docs/MCOREOS_P1_BACKUP_INTEGRITY_REPORT.md) | Remote sync audit, bundle checksum verification, and storage capacity. |
+| **P1-REP-02** | [MCOREOS_P1_RESTORE_TEST_REPORT.md](docs/MCOREOS_P1_RESTORE_TEST_REPORT.md) | Isolated restoration tests, commit verification, and git fsck results. |
+| **P1-REP-03** | [MCOREOS_P1_SECRET_AUDIT.md](docs/MCOREOS_P1_SECRET_AUDIT.md) | Zero-leak secret audit, key permissions, and quarantine recommendations. |
+| **P1-REP-04** | [MCOREOS_P1_BACKUP_AUTOMATION_PLAN.md](docs/MCOREOS_P1_BACKUP_AUTOMATION_PLAN.md) | Systemd backup service/timer architecture and retention matrix. |
+| **P1-REP-05** | [MCOREOS_P1_DISASTER_RECOVERY_RUNBOOK.md](docs/MCOREOS_P1_DISASTER_RECOVERY_RUNBOOK.md) | Step-by-step Debian 13 zero-state bare-metal restoration runbook. |
+| **P1-REP-06** | [MCOREOS_P1_REMAINING_GAPS.md](docs/MCOREOS_P1_REMAINING_GAPS.md) | Register of remaining gaps and explicit AIS approval requests. |
+
 ## 🎯 Target Role to Existing Repository Mapping
 
 | Proposed Target Role | Intended Responsibility | Mapped Existing Infrastructure |

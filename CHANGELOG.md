@@ -23,6 +23,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
   - Initialized `docs/`, `architecture/`, `inventory/`, `configs/`, `scripts/`, `recovery/`, `security/`, and `evidence/`.
   - Added automated offline bundle backup script `scripts/mcore-git-backup.sh`.
 
+### Added (P1 Disaster Recovery Suite)
+- **Directive P1 Verification Reports:**
+  - `docs/MCOREOS_P1_BACKUP_INTEGRITY_REPORT.md`: Audit of all existing GitHub repos, sync states, and bundle checksums.
+  - `docs/MCOREOS_P1_RESTORE_TEST_REPORT.md`: Empirical tests cloning from offline bundles into isolated test environments with 100% pass on git fsck.
+  - `docs/MCOREOS_P1_SECRET_AUDIT.md`: Zero-exposure secret audit confirming no private keys or active secrets leaked in public history.
+  - `docs/MCOREOS_P1_BACKUP_AUTOMATION_PLAN.md`: Systemd timer design, flock concurrency handling, and Google Drive path specification.
+  - `docs/MCOREOS_P1_DISASTER_RECOVERY_RUNBOOK.md`: Exact Debian 13 bare-metal reconstruction guide with RTO < 15 min.
+  - `docs/MCOREOS_P1_REMAINING_GAPS.md`: Approval register for remaining gaps and staged actions.
+
 ### Changed
 - Refactored `README.md` to introduce the Master Governance Index and target role mappings (`MCoreOS-Deb`, `MCoreOS-UbPro`, `MCoreOS-Sbox`, `MCoreOS-FullBack`).
 - Enforced strict SSH transport with `-c core.sshCommand="ssh -o StrictHostKeyChecking=accept-new"` across all automated git hooks.
