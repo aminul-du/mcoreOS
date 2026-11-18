@@ -1,0 +1,46 @@
+Repository_Name,Owner,Default_Branch,Visibility,Size_KB,Target_Role_Mapping,Functional_Scope,Lifecycle_Status,HTML_URL
+-ais-live-ai-ui,aminul-du,main,Public,0,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/-ais-live-ai-ui
+-ais-monorepo,aminul-du,main,Public,268,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/-ais-monorepo
+ais-cf-ai-gw,aminul-du,main,Public,0,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/ais-cf-ai-gw
+aminul-du,aminul-du,main,Public,339,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/aminul-du
+aminul-du-stack,aminul-du,main,Public,0,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/aminul-du-stack
+aminulcyberdu,aminul-du,main,Public,0,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/aminulcyberdu
+Auto-FlowShield_A524BD_Hybrid_DDOS_defense,aminul-du,main,Public,1439,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/Auto-FlowShield_A524BD_Hybrid_DDOS_defense
+ddos-playbook,aminul-du,main,Public,3,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/ddos-playbook
+doGet,aminul-du,main,Public,12,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/doGet
+FlowShield_DDOS_A524BD_Framework,aminul-du,main,Public,4,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/FlowShield_DDOS_A524BD_Framework
+gweyes360,aminul-du,main,Public,0,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/gweyes360
+GWeyesPy1,aminul-du,main,Public,0,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/GWeyesPy1
+in-toto.io,aminul-du,main,Public,17572,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/in-toto.io
+Kasm-docker,aminul-du,main,Public,0,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/Kasm-docker
+logo-generator,aminul-du,main,Public,0,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/logo-generator
+mcore-academy,aminul-du,main,Public,28,MCORE Academy education portal,Education Plane,Active / Portal,https://github.com/aminul-du/mcore-academy
+mcore-ai,aminul-du,main,Public,0,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/mcore-ai
+MCORE-AIS_dev_docs,aminul-du,main,Public,0,Developer documentation anchor,Documentation Plane,Active / Docs,https://github.com/aminul-du/MCORE-AIS_dev_docs
+mCore-dev-docs,aminul-du,main,Public,88,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/mCore-dev-docs
+mCore-Library,aminul-du,main,Public,0,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/mCore-Library
+mcore-mail-001,aminul-du,main,Public,8,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/mcore-mail-001
+mcore-sboxdrive,aminul-du,main,Public,230,Academic sandbox storage & drive,MCoreOS-Sbox,Active / Research,https://github.com/aminul-du/mcore-sboxdrive
+mcore-unified-library,aminul-du,main,Public,0,"Shared types, contracts & utils",Knowledge Plane,Active / Shared,https://github.com/aminul-du/mcore-unified-library
+mcoreai,aminul-du,main,Public,407,"SAII Monorepo, 18 Planes, Platform Engine",MCoreOS-Deb / Platform Monorepo,Active / Core,https://github.com/aminul-du/mcoreai
+mcorecloud,aminul-du,main,Public,0,Cloud infrastructure & OpenTofu IaC,Deployment Plane,Active / Cloud,https://github.com/aminul-du/mcorecloud
+mcorefabric-,aminul-du,main,Public,22,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/mcorefabric-
+MCoreNetproof360,aminul-du,main,Public,21,Network validation & proof harness,Operations & Verification,Active / Infra,https://github.com/aminul-du/MCoreNetproof360
+mcoreOS,aminul-du,main,Public,19,"Master OS, SmartNet VRF, microLab, AAA",MCoreOS-Deb / MCoreOS-FullBack,Active / Master,https://github.com/aminul-du/mcoreOS
+Meticulouscore_Web,aminul-du,main,Public,0,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/Meticulouscore_Web
+Modernization_Project,aminul-du,main,Public,0,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/Modernization_Project
+My-RajshahiOnline-WebHost,aminul-du,main,Public,111,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/My-RajshahiOnline-WebHost
+my-website,aminul-du,main,Public,0,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/my-website
+NativeBox-ais001,aminul-du,main,Public,22,Bare-metal operational control plane,Control Plane / NativeBox,Active / Core,https://github.com/aminul-du/NativeBox-ais001
+opentelemetry.io,aminul-du,main,Public,116033,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/opentelemetry.io
+prompt_design,aminul-du,main,Public,0,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/prompt_design
+r4ven,aminul-du,main,Public,6380,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/r4ven
+rollbar-vercel-starter-kit,aminul-du,main,Public,108,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/rollbar-vercel-starter-kit
+sboxdrive-Gdocs,aminul-du,main,Public,0,Sandbox docs sync to Google Docs,MCoreOS-Sbox,Active / Docs,https://github.com/aminul-du/sboxdrive-Gdocs
+shorbornoai,aminul-du,main,Public,0,WebRTC frontend validation platform,Validation Platform / Edge,Active / Edge,https://github.com/aminul-du/shorbornoai
+sorbornoai,aminul-du,main,Public,0,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/sorbornoai
+ssh-ca-config,aminul-du,main,Public,0,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/ssh-ca-config
+SSH_CA,aminul-du,main,Public,10,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/SSH_CA
+wiki,aminul-du,main,Public,3,Ecosystem Component,General MCORE Asset,Archived / Standby,https://github.com/aminul-du/wiki
+WSL-devNet,aminul-du,main,Public,36,Ubuntu Namespace NetOps & dynamic routing,MCoreOS-UbPro,Active / Production,https://github.com/aminul-du/WSL-devNet
+shorborno-agent,aminul-du,main,Private/Local,N/A,Operations / Voice Agent,Systemd Voice Daemon (Python 3.14),Active / Local Service,https://github.com/aminul-du/shorborno-agent
